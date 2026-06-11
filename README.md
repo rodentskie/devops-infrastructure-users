@@ -1,3 +1,3 @@
 # Description
 
-This repository manages the provisioning of AWS Organizational Units (OUs) and accounts using Terragrunt and Terraform.
+This repository manages the provisioning of AWS IAM Identity Center users and groups using Terragrunt and Terraform.
