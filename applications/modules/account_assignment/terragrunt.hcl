@@ -80,6 +80,10 @@ dependency "accounts" {
     system = {
       arn = "arn:aws:organiztions::abcdef"
       id  = "1234567890"
+    },
+    "rodentskie.dev" = {
+      arn = "arn:aws:organiztions::abcdef"
+      id  = "1234567890"
     }
   }
 }
@@ -87,6 +91,11 @@ dependency "accounts" {
 inputs = {
   instance_arn = dependency.sso.outputs.instance_arn
   assignments = {
+    root = {
+      account_id         = dependency.accounts.outputs.accounts["rodentskie.dev"].id
+      group_id           = dependency.groups.outputs.groups["platform-admins"].group_id
+      permission_set_arn = dependency.permissions.outputs.permission_sets["admin"].permission_set_arn
+    }
     system = {
       account_id         = dependency.accounts.outputs.accounts["system"].id
       group_id           = dependency.groups.outputs.groups["platform-admins"].group_id
